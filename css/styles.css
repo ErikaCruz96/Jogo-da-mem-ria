@@ -1,0 +1,67 @@
+*{
+    margin: 0;
+    padding: 0;
+    font-family: Helvetica;
+}
+h1{
+    text-align: center;
+    margin: 1rem 0;
+}
+
+.congratulations{
+    font-size: 1.5rem;
+    text-align: center;
+    background-color: #0a790a;
+    color: #fff;
+    padding: 0.4rem;
+    max-width: 500px;
+    border-radius: 5px;
+    margin: 1rem auto;
+}
+
+.container{
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);/*4 colunas em 1 linha*/
+    gap: 1rem; /*espaçamento entre os elementos*/
+    max-width: 800px;
+    margin: 0 auto;
+}
+.card{
+    position: relative; 
+    height: 200px;
+}
+.card .front,
+.card .back{
+    position: absolute;
+    width:100%;
+    height: 100%;/*para as duas imagens se sobreporem e ficarem certas*/
+    backface-visibility: hidden;/*controla se a parte traseira de um elemento é visível ou não quando ele é rotacionado no espaço 3D*/
+    border: 1px solid #000;
+    background-position: center;
+    background-size: cover;/*exibir o maximo possivel da imagem*/
+}
+.card .front{
+    transform: rotateY(180deg);
+    transition: 0.4s;
+}
+.card .back{
+    transform: rotateY(0deg);
+    transition: 0.4s;
+    z-index: 1;
+}
+
+.card.flip .front{
+    transform: rotateY(0deg);
+    z-index: 2;
+}
+.card.flip .back{
+    transform: rotateY(0deg);
+}
+
+.attempts-container{
+    text-align: center;
+    margin-top: 1.5rem;
+}
+.attempts{
+    font-size: 1.4rem;
+}
